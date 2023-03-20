@@ -1,20 +1,20 @@
 ﻿XmlJsonConverter
-1.0.0.0
+
 
 winexe
 C#
 .cs
-c:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\net7.0-windows\
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\net7.0-windows\
 XmlJsonConverter
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-c:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\App.xaml
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\App.xaml
 11407045341
 
-5-935555024
+3-1233169557
 1981462702791
 MainWindow.xaml;
 
-True
+False
 
