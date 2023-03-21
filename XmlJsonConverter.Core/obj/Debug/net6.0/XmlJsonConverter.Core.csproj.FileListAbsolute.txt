@@ -1,0 +1,12 @@
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\XmlJsonConverter.Core\obj\Debug\net6.0\XmlJsonConverter.Core.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\XmlJsonConverter.Core\obj\Debug\net6.0\XmlJsonConverter.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\XmlJsonConverter.Core\obj\Debug\net6.0\XmlJsonConverter.Core.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\XmlJsonConverter.Core\obj\Debug\net6.0\XmlJsonConverter.Core.AssemblyInfo.cs
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\XmlJsonConverter.Core\obj\Debug\net6.0\XmlJsonConverter.Core.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\XmlJsonConverter.Core\bin\Debug\net6.0\XmlJsonConverter.Core.deps.json
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\XmlJsonConverter.Core\bin\Debug\net6.0\XmlJsonConverter.Core.dll
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\XmlJsonConverter.Core\bin\Debug\net6.0\XmlJsonConverter.Core.pdb
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\XmlJsonConverter.Core\obj\Debug\net6.0\XmlJsonConverter.Core.dll
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\XmlJsonConverter.Core\obj\Debug\net6.0\refint\XmlJsonConverter.Core.dll
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\XmlJsonConverter.Core\obj\Debug\net6.0\XmlJsonConverter.Core.pdb
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\XmlJsonConverter.Core\obj\Debug\net6.0\ref\XmlJsonConverter.Core.dll

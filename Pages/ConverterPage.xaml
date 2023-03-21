@@ -11,13 +11,13 @@
     <Grid>
         <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Margin="10" Orientation="Horizontal">
-                <TextBox Width="350" Text="{Binding filePath}" Name="path"></TextBox>
+                <TextBox Width="350" Text="{Binding filePath, Mode=TwoWay}" Name="path"></TextBox>
                 <Button Name="btnOpenFile" Click="btnOpenFile_Click">Open file</Button>
             </StackPanel>
             <StackPanel Margin="10" HorizontalAlignment="Left">
-                <TextBox Width="350" Text="{Binding convertedFileName}" Name="outputPath"></TextBox>
+                <TextBox Width="350" Text="{Binding convertedFileName, Mode=TwoWay}" Name="outputPath"></TextBox>
             </StackPanel>
-            <Button Name="btnConvert">Convert file</Button>
+            <Button Command="{Binding ConvertFileCommand}" Name="btnConvert">Convert file</Button>
         </StackPanel>
         
     </Grid>
