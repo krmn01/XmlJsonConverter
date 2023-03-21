@@ -19,3 +19,8 @@ C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\net7.0-windows\refint\Xm
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\net7.0-windows\XmlJsonConverter.pdb
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\net7.0-windows\XmlJsonConverter.genruntimeconfig.cache
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\net7.0-windows\ref\XmlJsonConverter.dll
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\net7.0-windows\Controls\Converter.g.cs
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\net7.0-windows\Pages\ConverterPage.g.cs
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\net7.0-windows\Controls\Converter.baml
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\net7.0-windows\Pages\ConverterPage.baml

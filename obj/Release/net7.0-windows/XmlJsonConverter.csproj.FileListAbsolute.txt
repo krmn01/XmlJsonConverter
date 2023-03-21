@@ -1,0 +1,8 @@
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Release\net7.0-windows\XmlJsonConverter.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Release\net7.0-windows\Controls\Converter.g.cs
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Release\net7.0-windows\MainWindow.g.cs
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Release\net7.0-windows\Pages\ConverterPage.g.cs
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Release\net7.0-windows\App.g.cs
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Release\net7.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Release\net7.0-windows\XmlJsonConverter_MarkupCompile.cache
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Release\net7.0-windows\XmlJsonConverter_MarkupCompile.lref
