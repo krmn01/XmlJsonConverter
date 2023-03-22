@@ -5,6 +5,7 @@ C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\bin\Debug\netcoreapp7.0-windows\Xm
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\bin\Debug\netcoreapp7.0-windows\XmlJsonConverter.pdb
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\XmlJsonConverter.csproj.AssemblyReference.cache
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\Controls\Converter.g.cs
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\Controls\singleXmlElement.g.cs
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\MainWindow.g.cs
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\Pages\ConverterPage.g.cs
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\App.g.cs
@@ -12,6 +13,7 @@ C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\Ge
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\XmlJsonConverter_MarkupCompile.cache
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\XmlJsonConverter_MarkupCompile.lref
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\Controls\Converter.baml
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\Controls\singleXmlElement.baml
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\MainWindow.baml
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\Pages\ConverterPage.baml
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\XmlJsonConverter.g.resources

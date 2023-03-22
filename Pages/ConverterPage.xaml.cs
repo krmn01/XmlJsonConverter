@@ -14,13 +14,14 @@ namespace XmlJsonConverter
     /// </summary>
     public partial class ConverterPage : Page
     {
-        public ErrorService errorService;
+        public static ErrorService errorService = new ErrorService();
+        public static MessageService messageService = new MessageService();
+
+        private ConverterPageViewModel viewModel = new ConverterPageViewModel(errorService,messageService);
         public ConverterPage()
         {
-            errorService = new ErrorService();
             InitializeComponent();
-
-            DataContext = new ConverterPageViewModel(this.errorService);
+            DataContext = viewModel;
         }
 
         private void btnOpenFile_Click(object sender, RoutedEventArgs e)
@@ -29,6 +30,8 @@ namespace XmlJsonConverter
             if (openFileDialog.ShowDialog() == true)
             {
                 path.Text = Path.GetFullPath(openFileDialog.FileName);
+                viewModel.filePath = path.Text;
+                
             }
         }
     }

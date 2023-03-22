@@ -17,6 +17,15 @@
             <StackPanel Margin="10" HorizontalAlignment="Left">
                 <TextBox Width="350" Text="{Binding convertedFileName, Mode=TwoWay}" Name="outputPath"></TextBox>
             </StackPanel>
+            <ScrollViewer Name="xmlContent" >
+                <ItemsControl ItemsSource="{Binding xmlElements}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:singleXmlElement/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>              
+                </ItemsControl>
+            </ScrollViewer>
             <Button Command="{Binding ConvertFileCommand}" Name="btnConvert">Convert file</Button>
         </StackPanel>
         

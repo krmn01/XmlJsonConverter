@@ -10,6 +10,9 @@
     <Compile Update="Controls\Converter.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\singleXmlElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,6 +22,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\Converter.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\singleXmlElement.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
