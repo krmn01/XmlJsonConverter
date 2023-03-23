@@ -10,6 +10,7 @@ namespace XmlJsonConverter.Core
 
     public class ConverterPageViewModel :BaseViewModel
     {
+        public XmlDocument xmlDoc;
         public ObservableCollection<XmlElementViewModel> xmlElements { get; set; } = new ObservableCollection<XmlElementViewModel>();
         public string filePath { get; set; }
         public string convertedFileName { get; set; }
@@ -37,8 +38,8 @@ namespace XmlJsonConverter.Core
             {
                 case ".xml":
                     messageService.ShowMessage("Converting xml file to json");
-                    XmlDocument doc = XMLConverter.loadXML(filePath);
-                    xmlElements = XMLConverter.getXmlElements(doc);
+                    xmlDoc = XMLConverter.loadXML(filePath);
+                    xmlElements = XMLConverter.getXmlElements(xmlDoc);
                     break;
 
                 case ".json":

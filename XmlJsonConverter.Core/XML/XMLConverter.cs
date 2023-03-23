@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Controls;
 using System.Xml;
 
@@ -36,27 +37,43 @@ namespace XmlJsonConverter.Core
         {
             ObservableCollection<XmlElementViewModel> elements = new ObservableCollection<XmlElementViewModel>();
 
-            TraverseNodes(document.ChildNodes, elements);
+            //int currentElementId = 0;
+            TraverseNodes(document.ChildNodes, elements, "", "", 0, -1);
+
+            //deleting root element because we dont want to give a chance to delete it using checkboxes
+            elements.RemoveAt(0);   
+                
 
             return elements;
         }
 
-        private static void TraverseNodes(XmlNodeList nodes, ObservableCollection<XmlElementViewModel> elements)
+        private static void TraverseNodes(XmlNodeList nodes, ObservableCollection<XmlElementViewModel> elements, string currentName,string parentName, int currentId, int parentId)
         {
             foreach (XmlNode node in nodes)
             {
-                // If the node is an XmlElement and is not already in the collection, add it
-                if (node is XmlElement elem && !elements.Contains(new XmlElementViewModel(elem)))
+                if (node is XmlElement elem)
                 {
-                    elements.Add(new XmlElementViewModel(elem));
-                }
+                    var name = elem.Name;
+                    // Check if an element with the same name already exists in the collection
+                    var elementExists = elements.Any(e => e.xmlElementName == name);
+                    if (!elementExists)
+                    {
+                        // If not, add the element to the collection
+                        var element = new XmlElementViewModel(elem.Name, parentName, parentId);
+                        
+                        elements.Add(element);
 
-                // Recursively traverse any child nodes
-                if (node.HasChildNodes)
-                {
-                    TraverseNodes(node.ChildNodes, elements);
+                        // Traverse child nodes recursively
+                        if (node.HasChildNodes)
+                        {
+                            currentName = element.xmlElementName;
+                            currentId += 1;
+                            TraverseNodes(node.ChildNodes, elements, currentName,element.xmlElementName,currentId,currentId-1);
+                        }
+                    }
                 }
             }
+
         }
 
 

@@ -7,6 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Orientation="Horizontal">
-        <TextBlock Text="{Binding xmlElementName}"/>
+        <TextBlock Text="{Binding preparedToShowName}"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="     Parent: "/>
+            <TextBlock Text="{Binding parentName}"/>
+            <TextBlock Text="   "/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <CheckBox  Name="toConvert" IsChecked="True"></CheckBox>
+        </StackPanel>
     </StackPanel>
 </UserControl>
