@@ -18,6 +18,7 @@ namespace XmlJsonConverter.Core
         public bool correctExtension { get; set; }
 
         public ICommand ConvertFileCommand { get; set;}
+        public ICommand AnalyzeFileCommand { get; set; }
 
         private readonly IErrorService errorService;
         private readonly IMessageService messageService;
@@ -28,10 +29,10 @@ namespace XmlJsonConverter.Core
             this.errorService = err;
             this.messageService = msg;
             ConvertFileCommand = new RelayCommand(ConvertFile);
+            AnalyzeFileCommand = new RelayCommand(AnlyzeFile);
         }
 
-       
-        private void ConvertFile()
+        private void AnlyzeFile()
         {
             string tmp = Path.GetExtension(filePath);
             switch (tmp)
@@ -57,6 +58,12 @@ namespace XmlJsonConverter.Core
             OnPropertyChange(nameof(xmlElements));
             OnPropertyChange(nameof(filePath));
             OnPropertyChange(nameof(convertedFileName));
+        }
+
+       
+        private void ConvertFile()
+        {
+           
         }
 
     }

@@ -30,6 +30,7 @@
                    
             </ScrollViewer>
             <Button Command="{Binding ConvertFileCommand}" Name="btnConvert">Convert file</Button>
+            <Button Command="{Binding AnalyzeFileCommand}" Name="Analyze">Analyze</Button>
         </StackPanel>
         
     </Grid>
