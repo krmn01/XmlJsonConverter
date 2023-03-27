@@ -18,6 +18,7 @@ namespace XmlJsonConverter.Core
         */
         public string xmlElementName { get; set; }
         public string parentName { get; set; }
+        public bool isChecked { get; set; }
 
         /// <summary>
         /// preparedToShowName is used to display xml as tree

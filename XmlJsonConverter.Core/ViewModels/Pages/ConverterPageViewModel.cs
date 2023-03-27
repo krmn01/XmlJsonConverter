@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using System.Xml;
 using XmlJsonConverter.Core;
+using Newtonsoft.Json;
 
 namespace XmlJsonConverter.Core
 {
@@ -63,7 +64,17 @@ namespace XmlJsonConverter.Core
        
         private void ConvertFile()
         {
-           
+            if (xmlDoc!=null){
+                string json = JsonConvert.SerializeXmlNode(xmlDoc);
+                if (convertedFileName != string.Empty)
+                {
+                    File.WriteAllText(convertedFileName+".json", json);
+                }
+                else
+                {
+                    File.WriteAllText("output.json", json);
+                }
+            } 
         }
 
     }

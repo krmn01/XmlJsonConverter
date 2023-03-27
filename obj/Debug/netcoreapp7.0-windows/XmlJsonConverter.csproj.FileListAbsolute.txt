@@ -24,3 +24,5 @@ C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\re
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\XmlJsonConverter.pdb
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\XmlJsonConverter.genruntimeconfig.cache
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\ref\XmlJsonConverter.dll
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\bin\Debug\netcoreapp7.0-windows\Newtonsoft.Json.dll
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\XmlJsonConverter.csproj.CopyComplete
