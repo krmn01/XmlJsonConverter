@@ -39,13 +39,13 @@ namespace XmlJsonConverter.Core
             switch (tmp)
             {
                 case ".xml":
-                    messageService.ShowMessage("Converting xml file to json");
+                    messageService.ShowMessage("Analyzing xml file");
                     xmlDoc = XMLConverter.loadXML(filePath);
                     xmlElements = XMLConverter.getXmlElements(xmlDoc);
                     break;
 
                 case ".json":
-                    messageService.ShowMessage("Converting json file to xml");
+                    messageService.ShowMessage("Analyzing json file");
                     break;
 
                 default:
@@ -65,15 +65,32 @@ namespace XmlJsonConverter.Core
         private void ConvertFile()
         {
             if (xmlDoc!=null){
+
+                //getting unchecked elements
+                List<XmlElementViewModel> uncheckedElementList = xmlElements.Where(e => !e.isChecked).ToList();
+
+                foreach(var element in uncheckedElementList)
+                {
+                    XmlNodeList nodes = xmlDoc.GetElementsByTagName(element.xmlElementName);
+                   
+                    for(int i = 0; i < nodes.Count; i++)
+                    {
+                        nodes[i].ParentNode.RemoveChild(nodes[i]);
+                        
+                    }
+                }
+
                 string json = JsonConvert.SerializeXmlNode(xmlDoc);
                 if (convertedFileName != string.Empty)
                 {
                     File.WriteAllText(convertedFileName+".json", json);
+                    
                 }
                 else
                 {
                     File.WriteAllText("output.json", json);
                 }
+                messageService.ShowMessage("Conversion complete");
             } 
         }
 

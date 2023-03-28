@@ -36,6 +36,7 @@ namespace XmlJsonConverter.Core
             this.xmlElementName = element;
             this.parentName = parent;
             this.parentId = parentId;
+            this.isChecked = true;
         }
 
 

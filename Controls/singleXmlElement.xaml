@@ -14,7 +14,7 @@
             <TextBlock Text="   "/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <CheckBox  Name="toConvert" IsChecked="True"></CheckBox>
+            <CheckBox  Name="toConvert" IsChecked="{Binding Path=isChecked, Mode=TwoWay}"></CheckBox>
         </StackPanel>
     </StackPanel>
 </UserControl>
