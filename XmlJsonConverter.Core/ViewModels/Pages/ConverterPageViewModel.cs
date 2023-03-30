@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Xml;
 using XmlJsonConverter.Core;
 using Newtonsoft.Json;
+using System.Reflection.Metadata.Ecma335;
 
 namespace XmlJsonConverter.Core
 {
@@ -61,6 +62,33 @@ namespace XmlJsonConverter.Core
             OnPropertyChange(nameof(convertedFileName));
         }
 
+        private void deleteUncheckedNodes(List<XmlElementViewModel> uncheckedElementList, XmlNodeList docNodes)
+        {
+            foreach (XmlNode node in docNodes)
+            {
+                foreach(var uncheckedElement in uncheckedElementList){
+
+                    if (node is XmlElement elementNode)
+                    {
+                        messageService.ShowMessage("Current: " + elementNode.Name);
+                        if (uncheckedElement.xmlElementName.Equals(elementNode.Name))
+                        { 
+                            elementNode.RemoveAll();
+                            elementNode.ParentNode.RemoveChild(elementNode);
+                        }
+                        if (node.HasChildNodes)
+                        {
+                            deleteUncheckedNodes(uncheckedElementList, node.ChildNodes);
+                        }
+                    }
+                }
+                
+                
+               
+                       
+            }
+            }
+
        
         private void ConvertFile()
         {
@@ -68,17 +96,23 @@ namespace XmlJsonConverter.Core
 
                 //getting unchecked elements
                 List<XmlElementViewModel> uncheckedElementList = xmlElements.Where(e => !e.isChecked).ToList();
+                XmlNodeList docNodes = xmlDoc.DocumentElement.ChildNodes;
 
-                foreach(var element in uncheckedElementList)
+                deleteUncheckedNodes(uncheckedElementList, docNodes);
+                
+
+                /*
+                foreach (var element in uncheckedElementList)
                 {
                     XmlNodeList nodes = xmlDoc.GetElementsByTagName(element.xmlElementName);
-                   
-                    for(int i = 0; i < nodes.Count; i++)
+                    
+                    for (int i = 0; i < nodes.Count; i++)
                     {
                         nodes[i].ParentNode.RemoveChild(nodes[i]);
-                        
+
                     }
                 }
+                */
 
                 string json = JsonConvert.SerializeXmlNode(xmlDoc);
                 if (convertedFileName != string.Empty)
@@ -90,6 +124,8 @@ namespace XmlJsonConverter.Core
                 {
                     File.WriteAllText("output.json", json);
                 }
+                xmlDoc = null;
+                xmlElements.Clear();
                 messageService.ShowMessage("Conversion complete");
             } 
         }
