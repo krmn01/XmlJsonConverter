@@ -6,6 +6,7 @@ using System.Xml;
 using XmlJsonConverter.Core;
 using Newtonsoft.Json;
 using System.Reflection.Metadata.Ecma335;
+using Newtonsoft.Json.Linq;
 
 namespace XmlJsonConverter.Core
 {
@@ -13,6 +14,9 @@ namespace XmlJsonConverter.Core
     public class ConverterPageViewModel :BaseViewModel
     {
         public XmlDocument xmlDoc;
+        public JObject jsonDoc;
+
+        public ObservableCollection<JsonElementViewModel> jsonElements { get; set; } = new ObservableCollection<JsonElementViewModel>();
         public ObservableCollection<XmlElementViewModel> xmlElements { get; set; } = new ObservableCollection<XmlElementViewModel>();
         public string filePath { get; set; }
         public string convertedFileName { get; set; }
@@ -47,6 +51,9 @@ namespace XmlJsonConverter.Core
 
                 case ".json":
                     messageService.ShowMessage("Analyzing json file");
+                    string json = File.ReadAllText(filePath);
+                    jsonDoc = JObject.Parse(json);
+                    jsonElements = JsonConverter.getJsonElements(jsonDoc);
                     break;
 
                 default:
@@ -58,6 +65,7 @@ namespace XmlJsonConverter.Core
             convertedFileName = string.Empty;
 
             OnPropertyChange(nameof(xmlElements));
+            OnPropertyChange(nameof(jsonElements));
             OnPropertyChange(nameof(filePath));
             OnPropertyChange(nameof(convertedFileName));
         }
@@ -70,7 +78,6 @@ namespace XmlJsonConverter.Core
 
                     if (node is XmlElement elementNode)
                     {
-                        messageService.ShowMessage("Current: " + elementNode.Name);
                         if (uncheckedElement.xmlElementName.Equals(elementNode.Name))
                         { 
                             elementNode.RemoveAll();
@@ -81,13 +88,10 @@ namespace XmlJsonConverter.Core
                             deleteUncheckedNodes(uncheckedElementList, node.ChildNodes);
                         }
                     }
-                }
-                
-                
-               
+                }   
                        
             }
-            }
+        }
 
        
         private void ConvertFile()
@@ -100,21 +104,18 @@ namespace XmlJsonConverter.Core
 
                 deleteUncheckedNodes(uncheckedElementList, docNodes);
                 
-
-                /*
-                foreach (var element in uncheckedElementList)
-                {
-                    XmlNodeList nodes = xmlDoc.GetElementsByTagName(element.xmlElementName);
-                    
-                    for (int i = 0; i < nodes.Count; i++)
-                    {
-                        nodes[i].ParentNode.RemoveChild(nodes[i]);
-
-                    }
-                }
-                */
-
                 string json = JsonConvert.SerializeXmlNode(xmlDoc);
+                JObject js = JObject.Parse(json);
+                
+                ///deleting all occurances of #whitespace
+                foreach (var property in js.DescendantsAndSelf().OfType<JProperty>().Where(p => p.Name == "#whitespace").ToList())
+                {
+                    property.Remove();
+                }
+                js.Property("?xml")?.Remove();
+                
+                json = JsonConvert.SerializeObject(js, Newtonsoft.Json.Formatting.None);
+
                 if (convertedFileName != string.Empty)
                 {
                     File.WriteAllText(convertedFileName+".json", json);

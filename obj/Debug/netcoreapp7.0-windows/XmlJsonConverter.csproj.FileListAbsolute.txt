@@ -26,3 +26,5 @@ C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\Xm
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\ref\XmlJsonConverter.dll
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\bin\Debug\netcoreapp7.0-windows\Newtonsoft.Json.dll
 C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\XmlJsonConverter.csproj.CopyComplete
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\Controls\singleJsonElement.g.cs
+C:\Users\DELL\Desktop\DOTNET\XmlJsonConverter\obj\Debug\netcoreapp7.0-windows\Controls\singleJsonElement.baml

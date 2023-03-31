@@ -18,8 +18,9 @@
                 <TextBox Width="350" Text="{Binding convertedFileName, Mode=TwoWay}" Name="outputPath"></TextBox>
             </StackPanel>
             <TextBlock Text="Select which elements should be converted:"/>
-            <ScrollViewer Name="xmlContent" Height="50">
-                <ItemsControl ItemsSource="{Binding xmlElements}">
+            <ScrollViewer Name="Content" Height="50">
+                <StackPanel>
+                    <ItemsControl ItemsSource="{Binding xmlElements}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <local:singleXmlElement/>
@@ -27,7 +28,15 @@
                     </ItemsControl.ItemTemplate>
 
                 </ItemsControl>
-                   
+                <ItemsControl ItemsSource="{Binding jsonElements}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:singleJsonElement/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+
+                </ItemsControl>
+                </StackPanel>
             </ScrollViewer>
             <Button Command="{Binding ConvertFileCommand}" Name="btnConvert">Convert file</Button>
             <Button Command="{Binding AnalyzeFileCommand}" Name="Analyze">Analyze</Button>
