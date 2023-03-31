@@ -38,9 +38,13 @@ namespace XmlJsonConverter.Core
             AnalyzeFileCommand = new RelayCommand(AnlyzeFile);
         }
 
+
         private void AnlyzeFile()
         {
             string tmp = Path.GetExtension(filePath);
+            if (xmlElements != null) xmlElements = new ObservableCollection<XmlElementViewModel>();
+            else if (jsonElements != null) jsonElements = new ObservableCollection<JsonElementViewModel>();
+
             switch (tmp)
             {
                 case ".xml":
@@ -54,6 +58,7 @@ namespace XmlJsonConverter.Core
                     string json = File.ReadAllText(filePath);
                     jsonDoc = JObject.Parse(json);
                     jsonElements = JsonConverter.getJsonElements(jsonDoc);
+                   
                     break;
 
                 default:

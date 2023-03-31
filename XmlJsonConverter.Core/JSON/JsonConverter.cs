@@ -14,21 +14,25 @@ namespace XmlJsonConverter.Core
 
         public static ObservableCollection<JsonElementViewModel> getJsonElements(JObject doc)
         {
-            JArray arr = new JArray(doc.Values());
+            HashSet<(string,string)> addedElements = new HashSet<(string,string)>();
             ObservableCollection<JsonElementViewModel> tmp = new ObservableCollection<JsonElementViewModel>();
 
 
             foreach (JProperty prop in doc.DescendantsAndSelf().OfType<JProperty>())
             {
+                JToken token = prop.Value;
+                string path = token.Path;
                 if (prop.Value is JValue || prop.Value is JArray)
                 {
                     JObject parent = (JObject)prop.Parent;
                     string parentName = parent.Properties().FirstOrDefault()?.Name;
                     string propName = prop.Name;
 
-                    if (!tmp.Contains(new JsonElementViewModel(propName, parentName)))
+                    (string, string) elementName = (propName, parentName);
+                    if (!addedElements.Contains(elementName))
                     {
-                        tmp.Add(new JsonElementViewModel(propName, parentName));
+                        tmp.Add(new JsonElementViewModel(propName, path,parentName));
+                        addedElements.Add(elementName);
                     }
                 }
             }
