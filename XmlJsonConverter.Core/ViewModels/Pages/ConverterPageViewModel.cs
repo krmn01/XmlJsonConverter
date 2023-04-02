@@ -98,6 +98,8 @@ namespace XmlJsonConverter.Core
             }
         }
 
+
+
         private JObject deleteUncheckedNodes(List<JsonElementViewModel> uncheckedElementList, JObject js)
         {
             foreach(var element in uncheckedElementList){
@@ -154,12 +156,28 @@ namespace XmlJsonConverter.Core
                 XmlElement root = xmlTmp.CreateElement("root");
                 xmlTmp.AppendChild(root);
 
-                foreach(JProperty prop in jsonDoc.Properties())
+                foreach (JProperty prop in jsonDoc.Properties())
                 {
-                    XmlElement elem = xmlTmp.CreateElement(prop.Name);
-                    elem.InnerText = prop.Value.ToString();
-                    root.AppendChild(elem);
+                    if (prop.Value.Type == JTokenType.Object)
+                    {
+                        XmlElement elem = xmlTmp.CreateElement(prop.Name);
+                        root.AppendChild(elem);
+                        JsonConverter.ConvertObjectToJson(elem, (JObject)prop.Value);
+                    }
+                    else if (prop.Value.Type == JTokenType.Array)
+                    {
+                        XmlElement elem = xmlTmp.CreateElement(prop.Name);
+                        root.AppendChild(elem);
+                        JsonConverter.ConvertArrayToJson(elem, (JArray)prop.Value);
+                    }
+                    else
+                    {
+                        XmlElement elem = xmlTmp.CreateElement(prop.Name);
+                        elem.InnerText = prop.Value.ToString();
+                        root.AppendChild(elem);
+                    }
                 }
+
 
                 if (convertedFileName != string.Empty)
                 {
