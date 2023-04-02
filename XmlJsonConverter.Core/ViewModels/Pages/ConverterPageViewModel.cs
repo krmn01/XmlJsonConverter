@@ -98,6 +98,18 @@ namespace XmlJsonConverter.Core
             }
         }
 
+        private JObject deleteUncheckedNodes(List<JsonElementViewModel> uncheckedElementList, JObject js)
+        {
+            foreach(var element in uncheckedElementList){
+             
+                foreach (var property in js.DescendantsAndSelf().OfType<JProperty>().Where(p => p.Name == element.jsonElementName).ToList())
+                {
+                    property.Remove();
+                }
+            }
+            return js;
+        }
+
        
         private void ConvertFile()
         {
@@ -133,7 +145,35 @@ namespace XmlJsonConverter.Core
                 xmlDoc = null;
                 xmlElements.Clear();
                 messageService.ShowMessage("Conversion complete");
-            } 
+            }else if(jsonDoc != null)
+            {
+                List<JsonElementViewModel> uncheckedElementList = jsonElements.Where(e => !e.isChecked).ToList();
+                jsonDoc = deleteUncheckedNodes(uncheckedElementList, jsonDoc);
+
+                XmlDocument xmlTmp = new XmlDocument();
+                XmlElement root = xmlTmp.CreateElement("root");
+                xmlTmp.AppendChild(root);
+
+                foreach(JProperty prop in jsonDoc.Properties())
+                {
+                    XmlElement elem = xmlTmp.CreateElement(prop.Name);
+                    elem.InnerText = prop.Value.ToString();
+                    root.AppendChild(elem);
+                }
+
+                if (convertedFileName != string.Empty)
+                {
+                    xmlTmp.Save(convertedFileName + ".xml");
+
+                }
+                else
+                {
+                    xmlTmp.Save("output.xml");
+                }
+                jsonDoc = null;
+                jsonElements.Clear();
+                messageService.ShowMessage("Conversion complete");
+            }
         }
 
     }
